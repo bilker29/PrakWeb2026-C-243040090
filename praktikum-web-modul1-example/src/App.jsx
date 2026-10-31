@@ -23,37 +23,102 @@ function App() {
     { namaSkill: "PostgreSQL / Database", level: "Pemula" },
   ];
 
-  // 3. Data daftar mata kuliah praktikum untuk Latihan 2 (ItemMatkul)
-  const daftarPraktikum = [
+  // 3. Data daftar mata kuliah semester 2026 Ganjil sesuai KRS SITU2 UNPAS
+  const daftarMataKuliah = [
     {
-      id: 101,
-      kode: "IF211",
-      nama: "Pemrograman Web (React & Laravel)",
+      id: 1,
+      kode: "IF21P1506",
+      nama: "Sistem Operasi Lanjut",
+      kelas: "A",
       sks: 3,
-      hari: "Senin",
+      jadwal: "Rabu, 13:00 - 15:30",
+      ruang: "SB405 - M",
     },
     {
-      id: 102,
-      kode: "IF212",
-      nama: "Sistem Basis Data (PostgreSQL)",
-      sks: 3,
-      hari: "Rabu",
-    },
-    {
-      id: 103,
-      kode: "IF213",
-      nama: "Rekayasa Perangkat Lunak Terapan",
-      sks: 3,
-      hari: "Kamis",
-    },
-    {
-      id: 104,
-      kode: "IF214",
-      nama: "Arsitektur Sistem Terdistribusi",
+      id: 2,
+      kode: "IF21W0502",
+      nama: "Internet of Things",
+      kelas: "A",
       sks: 2,
-      hari: "Jumat",
+      jadwal: "Kamis, 07:00 - 08:40",
+      ruang: "SB305",
+    },
+    {
+      id: 3,
+      kode: "IF21W0503",
+      nama: "Intelegensia Buatan",
+      kelas: "C",
+      sks: 3,
+      jadwal: "Kamis, 09:40 - 12:10",
+      ruang: "SB401",
+    },
+    {
+      id: 4,
+      kode: "IF21W0504",
+      nama: "Verifikasi dan Validasi Perangkat Lunak",
+      kelas: "A",
+      sks: 2,
+      jadwal: "Senin, 16:30 - 18:15",
+      ruang: "SB407",
+    },
+    {
+      id: 5,
+      kode: "IF21W0505",
+      nama: "Perancangan Sistem",
+      kelas: "C",
+      sks: 3,
+      jadwal: "Rabu, 07:00 - 09:30",
+      ruang: "SB405 - M",
+    },
+    {
+      id: 6,
+      kode: "IF21W0506",
+      nama: "Praktikum Web",
+      kelas: "C",
+      sks: 2,
+      jadwal: "Selasa, 14:50 - 16:30",
+      ruang: "SB602",
+    },
+    {
+      id: 7,
+      kode: "IF21W0507",
+      nama: "Praktikum Sistem Berorientasi Objek",
+      kelas: "C",
+      sks: 1,
+      jadwal: "Selasa, 13:00 - 14:40",
+      ruang: "SB603",
+    },
+    {
+      id: 8,
+      kode: "IF21W0508",
+      nama: "Praktikum Pemrograman II",
+      kelas: "C",
+      sks: 2,
+      jadwal: "Senin, 13:00 - 14:40",
+      ruang: "SB601",
+    },
+    {
+      id: 9,
+      kode: "IF21W0701",
+      nama: "Bahasa Inggris",
+      kelas: "C",
+      sks: 2,
+      jadwal: "Rabu, 16:30 - 18:05",
+      ruang: "SB109",
+    },
+    {
+      id: 10,
+      kode: "IF21W0702",
+      nama: "Technopreneurship",
+      kelas: "A",
+      sks: 2,
+      jadwal: "Rabu, 10:40 - 12:20",
+      ruang: "SB410",
     },
   ];
+
+  // Menghitung total SKS secara dinamis
+  const totalSKS = daftarMataKuliah.reduce((total, matkul) => total + matkul.sks, 0);
 
   // 4. Data daftar portofolio untuk Tugas Terstruktur 3 (Showcase Portofolio Mini)
   const daftarProyek = [
@@ -138,19 +203,36 @@ function App() {
         />
       </section>
 
-      {/* Bagian 2: Daftar Rencana Praktikum Semester + Latihan 2 (ItemMatkul) */}
+      {/* Bagian 2: Daftar Rencana Kuliah Semester + Latihan 2 (ItemMatkul) */}
       <section style={{ marginBottom: "36px" }}>
-        <h2
+        <div
           style={{
-            color: "#2C3E50",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
             borderBottom: "2px solid #E1E4E8",
             paddingBottom: "8px",
+            marginBottom: "16px",
           }}
         >
-          Daftar Rencana Praktikum Semester (List Rendering)
-        </h2>
+          <h2 style={{ color: "#2C3E50", margin: 0 }}>
+            Daftar Mata Kuliah Semester Ini (KRS 2026 Ganjil)
+          </h2>
+          <span
+            style={{
+              backgroundColor: "#1B365D",
+              color: "#FFFFFF",
+              fontSize: "12px",
+              fontWeight: "bold",
+              padding: "4px 10px",
+              borderRadius: "14px",
+            }}
+          >
+            Total: {totalSKS} SKS ({daftarMataKuliah.length} Matkul)
+          </span>
+        </div>
         <div style={{ display: "grid", gap: "12px" }}>
-          {daftarPraktikum.map((matkul) => (
+          {daftarMataKuliah.map((matkul) => (
             <ItemMatkul key={matkul.id} {...matkul} />
           ))}
         </div>
@@ -167,7 +249,14 @@ function App() {
         >
           Showcase Portofolio Mini
         </h2>
-        <p style={{ color: "#666", fontSize: "14px", marginTop: "-4px", marginBottom: "20px" }}>
+        <p
+          style={{
+            color: "#666",
+            fontSize: "14px",
+            marginTop: "-4px",
+            marginBottom: "20px",
+          }}
+        >
           Koleksi proyek perangkat lunak mandiri yang dikembangkan dengan teknologi modern.
         </p>
         <div
@@ -184,7 +273,13 @@ function App() {
       </section>
 
       {/* Tombol Interaktivitas Event */}
-      <div style={{ textAlign: "center", marginTop: "30px", marginBottom: "50px" }}>
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: "30px",
+          marginBottom: "50px",
+        }}
+      >
         <button
           onClick={notifikasiSapaan}
           style={{

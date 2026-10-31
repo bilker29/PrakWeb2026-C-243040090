@@ -66,3 +66,4 @@ function BadgeSkill({ namaSkill, level }) {
 }
 
 export default BadgeSkill;
+

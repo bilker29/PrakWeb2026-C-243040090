@@ -50,3 +50,4 @@ Direktori proyek: [`praktikum-web-modul1-example`](./praktikum-web-modul1-exampl
 
 4. Buka peramban pada alamat:
    `http://localhost:5173/`
+
