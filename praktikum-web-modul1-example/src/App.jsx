@@ -2,6 +2,7 @@ import React from "react";
 import KartuProfil from "./KartuProfil";
 import ItemMatkul from "./ItemMatkul";
 import KartuProyek from "./KartuProyek";
+import fotoProfil from "./assets/pass-foto.jpeg";
 
 function App() {
   // 1. Data profil mahasiswa praktikan
@@ -10,17 +11,21 @@ function App() {
     npm: "243040090",
     kelas: "IF - C",
     status: "Aktif",
-    fotoUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+    fotoUrl: fotoProfil,
   };
 
   // 2. Data daftar keahlian untuk Latihan Mandiri 1 (BadgeSkill)
   const daftarSkill = [
     { namaSkill: "HTML5 & Modern CSS", level: "Mahir" },
-    { namaSkill: "JavaScript (ES6+)", level: "Menengah" },
+    { namaSkill: "JavaScript (ES6+)", level: "Mahir" },
     { namaSkill: "React.js & Vite", level: "Menengah" },
-    { namaSkill: "Git & Version Control", level: "Mahir" },
+    { namaSkill: "Git & GitHub", level: "Mahir" },
+    { namaSkill: "Tailwind CSS", level: "Mahir" },
+    { namaSkill: "Next.js & Web3", level: "Menengah" },
+    { namaSkill: "Docker & Microservices", level: "Menengah" },
+    { namaSkill: "Web Components & REST API", level: "Mahir" },
     { namaSkill: "Node.js & Express", level: "Pemula" },
-    { namaSkill: "PostgreSQL / Database", level: "Pemula" },
+    { namaSkill: "PostgreSQL & Database", level: "Pemula" },
   ];
 
   // 3. Data daftar mata kuliah semester 2026 Ganjil sesuai KRS SITU2 UNPAS
@@ -120,39 +125,39 @@ function App() {
   // Menghitung total SKS secara dinamis
   const totalSKS = daftarMataKuliah.reduce((total, matkul) => total + matkul.sks, 0);
 
-  // 4. Data daftar portofolio untuk Tugas Terstruktur 3 (Showcase Portofolio Mini)
+  // 4. Data portofolio nyata dari repositori GitHub @bilker29 untuk Tugas Terstruktur 3
   const daftarProyek = [
     {
       id: 1,
-      judul: "Sistem Informasi Perpustakaan Digital",
+      judul: "Pustaka Informasi Petani (PUSTANI)",
       deskripsi:
-        "Aplikasi web responsif untuk pengelolaan katalog buku, pencatatan transaksi peminjaman, serta kalkulasi denda keterlambatan secara otomatis.",
-      teknologi: ["React", "Node.js", "Express", "PostgreSQL"],
-      linkGithub: "https://github.com/bilker29/library-management-system",
+        "Platform sistem informasi dan layanan literasi terpadu untuk petani dengan arsitektur microservices, containerization Docker, serta automated pipeline CI/CD GitHub Actions.",
+      teknologi: ["Docker", "Microservices", "CI/CD", "Infra", "Fullstack"],
+      linkGithub: "https://github.com/bilker29/Pustaka-Informasi-Petani-PUSTANI-",
     },
     {
       id: 2,
-      judul: "E-Kantin UNPAS (Pemesanan Makanan)",
+      judul: "Personal Portfolio Website V5",
       deskripsi:
-        "Platform pemesanan hidangan kantin kampus secara mandiri dengan fitur keranjang belanja real-time dan konfirmasi status pembayaran.",
-      teknologi: ["React", "Vite", "Tailwind CSS", "Firebase"],
-      linkGithub: "https://github.com/bilker29/e-kantin-unpas",
+        "Website portofolio interaktif modern yang responsif dengan arsitektur berbasis React dan Tailwind CSS, menampilkan showcase keahlian teknis dan galeri aktivitas bertema polaroid card.",
+      teknologi: ["React", "TailwindCSS", "Vite", "PostCSS", "Vercel"],
+      linkGithub: "https://github.com/bilker29/Portofolio_V5",
     },
     {
       id: 3,
-      judul: "Dashboard Monitoring Kualitas Udara IoT",
+      judul: "Veridex AI (Credential & RWA Verification)",
       deskripsi:
-        "Antarmuka pemantauan data sensor lingkungan hidup secara real-time yang menyajikan grafik time-series dan indikator indeks standar pencemar udara.",
-      teknologi: ["React", "Chart.js", "MQTT", "REST API"],
-      linkGithub: "https://github.com/bilker29/iot-air-quality-monitor",
+        "Platform verifikasi kredensial berbasis AI dan smart contracts Web3 terdesentralisasi untuk tokenisasi sertifikat tanah RWA (Real World Asset) dan validasi keaslian dokumen digital.",
+      teknologi: ["Next.js", "Web3", "Smart Contracts", "AI", "TailwindCSS"],
+      linkGithub: "https://github.com/bilker29/Veridex-AI",
     },
     {
       id: 4,
-      judul: "Taskflow - Manajemen Produktivitas Mahasiswa",
+      judul: "Notes App (Web Components & REST API)",
       deskripsi:
-        "Aplikasi pelacak progres tugas kuliah berbasis papan Kanban interaktif dengan klasifikasi prioritas dan penyimpanan lokal pada browser.",
-      teknologi: ["React", "JavaScript ES6+", "CSS Grid", "LocalStorage"],
-      linkGithub: "https://github.com/bilker29/taskflow-kanban",
+        "Aplikasi catatan digital modern berbasis Single Page Application (SPA) yang dibangun menggunakan Webpack bundler, Custom Web Components terisolasi, dan integrasi RESTful API.",
+      teknologi: ["Web Components", "Webpack", "REST API", "JavaScript ES6+", "SPA"],
+      linkGithub: "https://github.com/bilker29/Notes-App",
     },
   ];
 
@@ -166,7 +171,7 @@ function App() {
   return (
     <div
       style={{
-        maxWidth: "900px",
+        maxWidth: "920px",
         margin: "40px auto",
         padding: "0 24px",
         fontFamily: "Arial, sans-serif",
@@ -257,7 +262,7 @@ function App() {
             marginBottom: "20px",
           }}
         >
-          Koleksi proyek perangkat lunak mandiri yang dikembangkan dengan teknologi modern.
+          Koleksi proyek perangkat lunak dari repositori GitHub resmi praktikan (<strong>@bilker29</strong>).
         </p>
         <div
           style={{
