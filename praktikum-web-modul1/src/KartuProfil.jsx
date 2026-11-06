@@ -1,7 +1,6 @@
 import React from 'react';
 import BadgeSkill from './BadgeSkill';
 
-// Komponen Functional menerima properti (props) melalui parameter fungsi
 function KartuProfil({ nama, npm, kelas, status, fotoUrl, skills = [] }) {
   return (
     <div
@@ -58,7 +57,6 @@ function KartuProfil({ nama, npm, kelas, status, fotoUrl, skills = [] }) {
         </span>
       </div>
 
-      {/* Latihan 1: Daftar Keahlian Mahasiswa */}
       {skills && skills.length > 0 && (
         <div
           style={{

@@ -29,6 +29,7 @@
   - [1. Latihan Mandiri (In-Lab Task) - BadgeSkill](#1-latihan-mandiri-in-lab-task---badgeskilljsx)
   - [2. Pemisahan Modul Komponen - ItemMatkul](#2-pemisahan-modul-komponen---itemmatkuljsx)
   - [3. Tugas Terstruktur - Showcase Portofolio Mini](#3-tugas-terstruktur-laporan-mandiri---showcase-portofolio-mini)
+- [Modul 2: Praktikum Lanjutan](#-modul-2-praktikum-lanjutan)
 - [Daftar Rencana Studi (KRS 2026 Ganjil)](#-daftar-rencana-studi-krs-2026-ganjil)
 - [Struktur Hierarki Direktori](#-struktur-hierarki-direktori)
 - [Panduan Menjalankan Aplikasi](#-panduan-menjalankan-aplikasi-secara-lokal)
@@ -42,7 +43,7 @@ Repositori ini dikelola untuk mendokumentasikan implementasi teknis, tugas terst
 ---
 
 ## 🚀 Modul 1: Fondasi Pengembangan Frontend
-Direktori kerja modul: [`praktikum-web-modul1-example/`](./praktikum-web-modul1-example/)
+Direktori kerja modul: [`praktikum-web-modul1/`](./praktikum-web-modul1/)
 
 ### 1. Latihan Mandiri (In-Lab Task) - `BadgeSkill.jsx`
 Komponen fungsional terisolasi untuk menampilkan keahlian teknis mahasiswa dengan pewarnaan lencana (*badge*) dinamis berdasarkan level:
@@ -51,7 +52,7 @@ Komponen fungsional terisolasi untuk menampilkan keahlian teknis mahasiswa denga
   - `Mahir` $\rightarrow$ Hijau emerald (`#DCFCE7` / `#15803D`)
   - `Menengah` $\rightarrow$ Kuning amber (`#FEF3C7` / `#92400E`)
   - `Pemula` $\rightarrow$ Slate keabuan (`#E2E8F0` / `#334155`)
-- Terintegrasi di dalam komponen [`KartuProfil.jsx`](./praktikum-web-modul1-example/src/KartuProfil.jsx).
+- Terintegrasi di dalam komponen [`KartuProfil.jsx`](./praktikum-web-modul1/src/KartuProfil.jsx).
 
 ### 2. Pemisahan Modul Komponen - `ItemMatkul.jsx`
 Pemisahan logika mata kuliah menjadi komponen independen berprinsip *Single Responsibility*:
@@ -64,7 +65,7 @@ Pemisahan logika mata kuliah menjadi komponen independen berprinsip *Single Resp
   ```
 
 ### 3. Tugas Terstruktur (Laporan Mandiri) - Showcase Portofolio Mini
-Komponen [`KartuProyek.jsx`](./praktikum-web-modul1-example/src/KartuProyek.jsx) menampilkan 4 proyek nyata yang terhubung langsung ke repositori GitHub resmi praktikan ([@bilker29](https://github.com/bilker29)):
+Komponen [`KartuProyek.jsx`](./praktikum-web-modul1/src/KartuProyek.jsx) menampilkan 4 proyek nyata yang terhubung langsung ke repositori GitHub resmi praktikan ([@bilker29](https://github.com/bilker29)):
 
 | Proyek | Ringkasan Deskripsi | Tagar Teknologi | Tautan Repositori |
 | :--- | :--- | :--- | :---: |
@@ -72,6 +73,11 @@ Komponen [`KartuProyek.jsx`](./praktikum-web-modul1-example/src/KartuProyek.jsx)
 | **Portofolio V5** | Website portofolio interaktif pribadi yang responsif dengan showcase aktivitas bertema polaroid card. | `#React` `#TailwindCSS` `#Vite` `#Vercel` | [Lihat Repo ↗](https://github.com/bilker29/Portofolio_V5) |
 | **Veridex AI** | Platform verifikasi kredensial berbasis AI dan smart contracts Web3 untuk tokenisasi RWA sertifikat tanah. | `#Next.js` `#Web3` `#SmartContracts` `#AI` | [Lihat Repo ↗](https://github.com/bilker29/Veridex-AI) |
 | **Notes App** | Aplikasi catatan digital Single Page Application dengan kustom Web Components dan RESTful API. | `#WebComponents` `#Webpack` `#REST-API` `#SPA` | [Lihat Repo ↗](https://github.com/bilker29/Notes-App) |
+
+---
+
+## ⚡ Modul 2: Praktikum Lanjutan
+Direktori kerja modul: [`praktikum-web-modul2/`](./praktikum-web-modul2/)
 
 ---
 
@@ -101,22 +107,27 @@ Data terverifikasi sesuai Kartu Rencana Studi (KRS) sistem SITU2 UNPAS:
 PrakWeb2026-C-243040090/
 ├── README.md                          # Dokumentasi utama repositori
 ├── .gitignore                         # Konfigurasi pengecualian Git root
-└── praktikum-web-modul1-example/      # Ruang kerja Proyek Modul 1 (Vite + React)
-    ├── index.html                     # Single-entry point HTML untuk SPA
-    ├── package.json                   # Manifes dependensi & skrip build
-    ├── vite.config.js                 # Konfigurasi build tool Vite
-    ├── eslint.config.js               # Konfigurasi standar kualitas kode
-    ├── public/                        # Aset statis publik
-    └── src/
-        ├── assets/
-        │   └── pass-foto.jpeg         # Pass foto resmi praktikan
-        ├── main.jsx                   # Titik masuk React DOM rendering
-        ├── App.jsx                    # Root component aplikasi
-        ├── KartuProfil.jsx            # Komponen kartu identitas praktikan
-        ├── BadgeSkill.jsx             # [Tugas 1] Komponen badge level keahlian
-        ├── ItemMatkul.jsx             # [Tugas 2] Komponen modular item mata kuliah
-        ├── KartuProyek.jsx            # [Tugas 3] Komponen showcase portofolio
-        └── index.css                  # Pengaturan gaya global
+├── praktikum-web-modul1/              # Ruang kerja Proyek Modul 1 (Vite + React)
+│   ├── index.html                     # Single-entry point HTML untuk SPA
+│   ├── package.json                   # Manifes dependensi & skrip build
+│   ├── vite.config.js                 # Konfigurasi build tool Vite
+│   ├── eslint.config.js               # Konfigurasi standar kualitas kode
+│   ├── public/                        # Aset statis publik
+│   └── src/
+│       ├── assets/
+│       │   └── pass-foto.jpeg         # Pass foto resmi praktikan
+│       ├── main.jsx                   # Titik masuk React DOM rendering
+│       ├── App.jsx                    # Root component aplikasi
+│       ├── KartuProfil.jsx            # Komponen kartu identitas praktikan
+│       ├── BadgeSkill.jsx             # [Tugas 1] Komponen badge level keahlian
+│       ├── ItemMatkul.jsx             # [Tugas 2] Komponen modular item mata kuliah
+│       ├── KartuProyek.jsx            # [Tugas 3] Komponen showcase portofolio
+│       └── index.css                  # Pengaturan gaya global
+└── praktikum-web-modul2/              # Ruang kerja Proyek Modul 2
+    ├── index.html                     # Entry point Modul 2
+    ├── package.json                   # Manifes dependensi Modul 2
+    ├── vite.config.js                 # Konfigurasi Vite Modul 2
+    └── src/                           # Source code Modul 2
 ```
 
 ---
@@ -127,7 +138,7 @@ PrakWeb2026-C-243040090/
 - [Node.js](https://nodejs.org/) (versi LTS v18.x atau v20.x+)
 - npm (v9.x atau v10.x+)
 
-### Langkah Instalasi & Eksekusi
+### Langkah Instalasi & Eksekusi (Modul 1)
 1. **Clone repositori:**
    ```bash
    git clone https://github.com/bilker29/PrakWeb2026-C-243040090.git
@@ -136,7 +147,7 @@ PrakWeb2026-C-243040090/
 
 2. **Masuk ke folder modul 1:**
    ```bash
-   cd praktikum-web-modul1-example
+   cd praktikum-web-modul1
    ```
 
 3. **Pasang dependensi:**

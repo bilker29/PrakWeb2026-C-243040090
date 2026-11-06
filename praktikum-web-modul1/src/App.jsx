@@ -5,7 +5,6 @@ import KartuProyek from "./KartuProyek";
 import fotoProfil from "./assets/pass-foto.jpeg";
 
 function App() {
-  // 1. Data profil mahasiswa praktikan
   const profilMahasiswa = {
     nama: "Billy Wicaksono",
     npm: "243040090",
@@ -14,7 +13,6 @@ function App() {
     fotoUrl: fotoProfil,
   };
 
-  // 2. Data daftar keahlian untuk Latihan Mandiri 1 (BadgeSkill)
   const daftarSkill = [
     { namaSkill: "HTML & CSS", level: "Mahir" },
     { namaSkill: "JavaScript ES6+", level: "Mahir" },
@@ -24,7 +22,6 @@ function App() {
     { namaSkill: "Node.js", level: "Pemula" },
   ];
 
-  // 3. Data daftar mata kuliah semester ini sesuai KRS SITU2 UNPAS
   const daftarMataKuliah = [
     {
       id: 1,
@@ -108,7 +105,6 @@ function App() {
     },
   ];
 
-  // 4. Data portofolio proyek untuk Tugas Terstruktur 3
   const daftarProyek = [
     {
       id: 1,
@@ -144,7 +140,6 @@ function App() {
     },
   ];
 
-  // 5. Fungsi penanganan interaksi event tombol
   const notifikasiSapaan = () => {
     alert(
       "Selamat datang di Modul 1! Anda berhasil menguasai fondasi arsitektur React JS.",
@@ -169,7 +164,6 @@ function App() {
         </p>
       </header>
 
-      {/* Bagian 1: Profil Mahasiswa Praktikan */}
       <section style={{ marginBottom: "32px" }}>
         <h2
           style={{
@@ -190,7 +184,6 @@ function App() {
         />
       </section>
 
-      {/* Bagian 2: Daftar Rencana Praktikum Semester */}
       <section style={{ marginBottom: "32px" }}>
         <h2
           style={{
@@ -208,7 +201,6 @@ function App() {
         </div>
       </section>
 
-      {/* Bagian 3: Showcase Portofolio Mini */}
       <section style={{ marginBottom: "32px" }}>
         <h2
           style={{
@@ -233,7 +225,6 @@ function App() {
         </div>
       </section>
 
-      {/* Tombol Uji Interaktivitas Event */}
       <div style={{ textAlign: "center", marginTop: "40px" }}>
         <button
           onClick={notifikasiSapaan}

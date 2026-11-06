@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Komponen mandiri untuk menampilkan satu kartu portofolio proyek
 function KartuProyek({ judul, deskripsi, teknologi = [], linkGithub }) {
   return (
     <div
@@ -38,7 +37,6 @@ function KartuProyek({ judul, deskripsi, teknologi = [], linkGithub }) {
       </div>
 
       <div>
-        {/* Tagar Teknologi */}
         <div
           style={{
             display: 'flex',
@@ -64,7 +62,6 @@ function KartuProyek({ judul, deskripsi, teknologi = [], linkGithub }) {
           ))}
         </div>
 
-        {/* Tombol Tautan Repositori GitHub */}
         <a
           href={linkGithub}
           target="_blank"

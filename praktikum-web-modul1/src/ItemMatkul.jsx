@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Komponen mandiri untuk merepresentasikan satu item mata kuliah praktikum
 function ItemMatkul({ kode, nama, sks, hari, jadwal, ruang }) {
   const infoJadwal = jadwal || (hari ? `${hari}` : '-');
 

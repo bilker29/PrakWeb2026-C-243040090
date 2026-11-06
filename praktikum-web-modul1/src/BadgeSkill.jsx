@@ -1,8 +1,6 @@
 import React from 'react';
 
-// Komponen BadgeSkill menerima props namaSkill dan level
 function BadgeSkill({ namaSkill, level }) {
-  // Penentuan warna dinamis berdasarkan level keahlian (Mahir, Menengah, Pemula)
   const getWarna = (lvl) => {
     switch (lvl) {
       case 'Mahir':
