@@ -29,16 +29,20 @@
   - [1. Latihan Mandiri (In-Lab Task) - BadgeSkill](#1-latihan-mandiri-in-lab-task---badgeskilljsx)
   - [2. Pemisahan Modul Komponen - ItemMatkul](#2-pemisahan-modul-komponen---itemmatkuljsx)
   - [3. Tugas Terstruktur - Showcase Portofolio Mini](#3-tugas-terstruktur-laporan-mandiri---showcase-portofolio-mini)
-- [Modul 2: Praktikum Lanjutan](#-modul-2-praktikum-lanjutan)
+- [Modul 2: State Management & Komponen Interaktif](#-modul-2-state-management--komponen-interaktif)
+  - [1. Eksperimen Reaktivitas State (`Penghitung.jsx`)](#1-eksperimen-reaktivitas-state-penghitungjsx)
+  - [2. Aplikasi Manajemen Daftar Tugas (`Daftar Tugas`)](#2-aplikasi-manajemen-daftar-tugas-daftar-tugas)
+  - [3. Catatan Keuangan Mini (`CatatanKeuangan.jsx`)](#3-catatan-keuangan-mini-catatankeuanganjsx)
+  - [4. Konfigurasi Multi-Page HTML Entry Points](#4-konfigurasi-multi-page-html-entry-points)
 - [Daftar Rencana Studi (KRS 2026 Ganjil)](#-daftar-rencana-studi-krs-2026-ganjil)
 - [Struktur Hierarki Direktori](#-struktur-hierarki-direktori)
-- [Panduan Menjalankan Aplikasi](#-panduan-menjalankan-aplikasi-secara-lokal)
+- [Panduan Menjalankan Aplikasi Secara Lokal](#-panduan-menjalankan-aplikasi-secara-lokal)
 - [Rubrik Evaluasi & Kriteria Kualitas](#-rubrik-evaluasi--kriteria-kualitas)
 
 ---
 
 ## 📖 Tentang Repositori
-Repositori ini dikelola untuk mendokumentasikan implementasi teknis, tugas terstruktur, serta latihan mandiri mata kuliah **Praktikum Pemrograman Web**. Seluruh arsitektur kode dibangun menggunakan standar industri modern berbasis **Component-Based Architecture**, aturan sintaksis deklaratif JSX, dan alur data searah (*unidirectional data flow*).
+Repositori ini dikelola untuk mendokumentasikan implementasi teknis, tugas terstruktur, serta latihan mandiri mata kuliah **Praktikum Pemrograman Web**. Seluruh arsitektur kode dibangun menggunakan standar industri modern berbasis **Component-Based Architecture**, aturan sintaksis deklaratif JSX, manajemen state reaktif melalui React Hooks, dan aliran data searah (*unidirectional data flow*).
 
 ---
 
@@ -49,14 +53,14 @@ Direktori kerja modul: [`praktikum-web-modul1/`](./praktikum-web-modul1/)
 Komponen fungsional terisolasi untuk menampilkan keahlian teknis mahasiswa dengan pewarnaan lencana (*badge*) dinamis berdasarkan level:
 - **Props**: `namaSkill` (String), `level` (`Pemula`, `Menengah`, `Mahir`)
 - **Pewarnaan Dinamis**:
-  - `Mahir` $\rightarrow$ Hijau emerald (`#DCFCE7` / `#15803D`)
-  - `Menengah` $\rightarrow$ Kuning amber (`#FEF3C7` / `#92400E`)
-  - `Pemula` $\rightarrow$ Slate keabuan (`#E2E8F0` / `#334155`)
+  - `Mahir` $\rightarrow$ Hijau emerald (`#D4EDDA` / `#15803D`)
+  - `Menengah` $\rightarrow$ Kuning amber (`#CCE5FF` / `#004085`)
+  - `Pemula` $\rightarrow$ Slate keabuan (`#FFF3CD` / `#856404`)
 - Terintegrasi di dalam komponen [`KartuProfil.jsx`](./praktikum-web-modul1/src/KartuProfil.jsx).
 
 ### 2. Pemisahan Modul Komponen - `ItemMatkul.jsx`
 Pemisahan logika mata kuliah menjadi komponen independen berprinsip *Single Responsibility*:
-- **Props**: `{ kode, nama, sks, jadwal, kelas, ruang }`
+- **Props**: `{ kode, nama, sks, jadwal, ruang }`
 - **Penerapan di `App.jsx`**:
   ```jsx
   {daftarMataKuliah.map((matkul) => (
@@ -69,15 +73,43 @@ Komponen [`KartuProyek.jsx`](./praktikum-web-modul1/src/KartuProyek.jsx) menampi
 
 | Proyek | Ringkasan Deskripsi | Tagar Teknologi | Tautan Repositori |
 | :--- | :--- | :--- | :---: |
-| **PUSTANI** | Platform informasi dan layanan literasi terpadu petani dengan microservices dan pipeline CI/CD GitHub Actions. | `#Docker` `#Microservices` `#CI/CD` `#Infra` | [Lihat Repo ↗](https://github.com/bilker29/Pustaka-Informasi-Petani-PUSTANI-) |
-| **Portofolio V5** | Website portofolio interaktif pribadi yang responsif dengan showcase aktivitas bertema polaroid card. | `#React` `#TailwindCSS` `#Vite` `#Vercel` | [Lihat Repo ↗](https://github.com/bilker29/Portofolio_V5) |
-| **Veridex AI** | Platform verifikasi kredensial berbasis AI dan smart contracts Web3 untuk tokenisasi RWA sertifikat tanah. | `#Next.js` `#Web3` `#SmartContracts` `#AI` | [Lihat Repo ↗](https://github.com/bilker29/Veridex-AI) |
-| **Notes App** | Aplikasi catatan digital Single Page Application dengan kustom Web Components dan RESTful API. | `#WebComponents` `#Webpack` `#REST-API` `#SPA` | [Lihat Repo ↗](https://github.com/bilker29/Notes-App) |
+| **PUSTANI** | Platform informasi dan layanan literasi terpadu petani dengan microservices dan pipeline CI/CD GitHub Actions. | `#Docker` `#Microservices` `#CI/CD` `#Fullstack` | [Lihat Repo ↗](https://github.com/bilker29/Pustaka-Informasi-Petani-PUSTANI-) |
+| **Portofolio V5** | Website portofolio interaktif pribadi yang responsif dengan showcase keahlian dan riwayat kegiatan. | `#React` `#TailwindCSS` `#Vite` `#JavaScript` | [Lihat Repo ↗](https://github.com/bilker29/Portofolio_V5) |
+| **Veridex AI** | Platform verifikasi kredensial berbasis AI dan smart contracts Web3 untuk tokenisasi RWA sertifikat tanah. | `#Next.js` `#Web3` `#SmartContracts` `#TailwindCSS` | [Lihat Repo ↗](https://github.com/bilker29/Veridex-AI) |
+| **Notes App** | Aplikasi catatan digital Single Page Application dengan kustom Web Components modular dan RESTful API. | `#JavaScript` `#WebComponents` `#Webpack` `#REST-API` | [Lihat Repo ↗](https://github.com/bilker29/Notes-App) |
 
 ---
 
-## ⚡ Modul 2: Praktikum Lanjutan
+## ⚡ Modul 2: State Management & Komponen Interaktif
 Direktori kerja modul: [`praktikum-web-modul2/`](./praktikum-web-modul2/)
+
+Modul 2 berfokus pada pendalaman reaktivitas React melalui **State Hook (`useState`)**, **Side Effect Hook (`useEffect`)**, penanganan form terkontrol (*Controlled Components*), serta sinkronisasi data peramban (*LocalStorage*).
+
+### 1. Eksperimen Reaktivitas State (`Penghitung.jsx`)
+- Demonstrasi interaktivitas state angka melalui tombol *Increment*, *Decrement*, dan *Reset*.
+- Mengamati alur kerja *re-render* deklaratif saat nilai state mengalami mutasi.
+
+### 2. Aplikasi Manajemen Daftar Tugas (`Daftar Tugas`)
+- **Input Terkontrol & Validasi:** Form penambahan tugas baru dengan validasi string kosong dan reset form otomatis.
+- **Toggle Status Selesai:** Penandaan progres tugas menggunakan coretan teks (*line-through*) dan *checkbox*.
+- **Filter Tugas Dinamis:** Filter data berbasis state: *Semua*, *Belum Selesai (Aktif)*, dan *Selesai*.
+- **Progress Bar Real-Time:** Penghitungan rasio dan persentase penyelesaian tugas secara otomatis.
+- **Pembersihan Massal (*Bulk Action*):** Tombol pembersihan semua tugas yang sudah berstatus selesai.
+- **Integrasi `useEffect`:**
+  - Pembaruan judul tab dokumen (`document.title`) berdasarkan sisa tugas yang belum diselesaikan.
+  - Persistensi data dua arah ke `localStorage` agar data tugas tidak hilang saat peramban dimuat ulang.
+
+### 3. Catatan Keuangan Mini (`CatatanKeuangan.jsx`)
+- **Dashboard Ringkasan Saldo:** Perhitungan real-time akumulasi pemasukan, pengeluaran, serta sisa saldo kas.
+- **Form Mutasi Keuangan:** Input nominal terformat, keterangan transaksi, dan pemilihan kategori tipe mutasi.
+- **Riwayat Transaksi:** Penyajian riwayat transaksi terformat mata uang Rupiah (`Intl.NumberFormat`).
+- **Penyimpanan Lokal:** Terhubung otomatis dengan `localStorage` (*browser storage*).
+
+### 4. Konfigurasi Multi-Page HTML Entry Points
+Proyek dikonfigurasikan dengan build multi-page Vite:
+- `index.html` $\rightarrow$ Dasbor Utama (Navigasi Tab antara Daftar Tugas & Catatan Keuangan)
+- `HelloWorld.html` $\rightarrow$ Demonstrasi komponen Hello World dasar
+- `keuangan.html` $\rightarrow$ Akses mandiri untuk modul Catatan Keuangan
 
 ---
 
@@ -107,27 +139,46 @@ Data terverifikasi sesuai Kartu Rencana Studi (KRS) sistem SITU2 UNPAS:
 PrakWeb2026-C-243040090/
 ├── README.md                          # Dokumentasi utama repositori
 ├── .gitignore                         # Konfigurasi pengecualian Git root
-├── praktikum-web-modul1/              # Ruang kerja Proyek Modul 1 (Vite + React)
-│   ├── index.html                     # Single-entry point HTML untuk SPA
-│   ├── package.json                   # Manifes dependensi & skrip build
-│   ├── vite.config.js                 # Konfigurasi build tool Vite
-│   ├── eslint.config.js               # Konfigurasi standar kualitas kode
-│   ├── public/                        # Aset statis publik
+│
+├── praktikum-web-modul1/              # Proyek Modul 1 (Fondasi React, JSX, Props)
+│   ├── README.md                      # Dokumentasi teknis Modul 1
+│   ├── index.html                     # Entry point SPA
+│   ├── package.json                   # Manifes dependensi Modul 1
+│   ├── vite.config.js                 # Konfigurasi build Vite Modul 1
+│   ├── eslint.config.js               # Konfigurasi linter Modul 1
+│   ├── public/                        # Aset publik statis
 │   └── src/
 │       ├── assets/
 │       │   └── pass-foto.jpeg         # Pass foto resmi praktikan
 │       ├── main.jsx                   # Titik masuk React DOM rendering
 │       ├── App.jsx                    # Root component aplikasi
 │       ├── KartuProfil.jsx            # Komponen kartu identitas praktikan
-│       ├── BadgeSkill.jsx             # [Tugas 1] Komponen badge level keahlian
+│       ├── BadgeSkill.jsx             # [Tugas 1] Komponen badge level keahlian dinamis
 │       ├── ItemMatkul.jsx             # [Tugas 2] Komponen modular item mata kuliah
-│       ├── KartuProyek.jsx            # [Tugas 3] Komponen showcase portofolio
+│       ├── KartuProyek.jsx            # [Tugas 3] Komponen showcase portofolio mini
 │       └── index.css                  # Pengaturan gaya global
-└── praktikum-web-modul2/              # Ruang kerja Proyek Modul 2
-    ├── index.html                     # Entry point Modul 2
+│
+└── praktikum-web-modul2/              # Proyek Modul 2 (State, Hooks, Controlled Form)
+    ├── README.md                      # Dokumentasi teknis Modul 2
+    ├── index.html                     # Entry point Dasbor Tugas & Keuangan
+    ├── HelloWorld.html                # Entry point halaman Hello World
+    ├── keuangan.html                  # Entry point modul Catatan Keuangan
     ├── package.json                   # Manifes dependensi Modul 2
-    ├── vite.config.js                 # Konfigurasi Vite Modul 2
-    └── src/                           # Source code Modul 2
+    ├── vite.config.js                 # Konfigurasi multi-page build Vite Modul 2
+    ├── eslint.config.js               # Konfigurasi linter Modul 2
+    └── src/
+        ├── App.jsx                    # Root component aplikasi Modul 2
+        ├── Penghitung.jsx             # Komponen counter state interaktif
+        ├── FormTugas.jsx              # Komponen form penambahan tugas
+        ├── ItemTugas.jsx              # Komponen item baris tugas & status checkbox
+        ├── Kartu.jsx                  # Komponen pembungkus kontainer kartu
+        ├── App.css                    # Lembar gaya komponen aplikasi
+        └── keuangan/                  # Modul mandiri Catatan Keuangan
+            ├── CatatanKeuangan.jsx    # Komponen utama keuangan
+            ├── RingkasanSaldo.jsx     # Komponen kalkulasi saldo kas
+            ├── FormTransaksi.jsx      # Form input mutasi pemasukan/pengeluaran
+            ├── DaftarTransaksi.jsx    # Komponen daftar riwayat transaksi
+            └── ItemTransaksi.jsx      # Baris entitas transaksi uang
 ```
 
 ---
@@ -138,44 +189,29 @@ PrakWeb2026-C-243040090/
 - [Node.js](https://nodejs.org/) (versi LTS v18.x atau v20.x+)
 - npm (v9.x atau v10.x+)
 
-### Langkah Instalasi & Eksekusi (Modul 1)
-1. **Clone repositori:**
-   ```bash
-   git clone https://github.com/bilker29/PrakWeb2026-C-243040090.git
-   cd PrakWeb2026-C-243040090
-   ```
+### Menjalankan Proyek Modul 1:
+```bash
+cd praktikum-web-modul1
+npm install
+npm run dev
+```
+Buka peramban pada alamat: `http://localhost:5173/`
 
-2. **Masuk ke folder modul 1:**
-   ```bash
-   cd praktikum-web-modul1
-   ```
-
-3. **Pasang dependensi:**
-   ```bash
-   npm install
-   ```
-
-4. **Nyalakan server pengembangan lokal:**
-   ```bash
-   npm run dev
-   ```
-
-5. **Akses antarmuka peramban:**
-   Buka peramban pada alamat `http://localhost:5173/`.
-
-6. **Pengujian Build Produksi & Linter:**
-   ```bash
-   npm run build
-   npm run lint
-   ```
+### Menjalankan Proyek Modul 2:
+```bash
+cd praktikum-web-modul2
+npm install
+npm run dev
+```
+Buka peramban pada alamat: `http://localhost:5173/` (tersedia halaman tambahan `/HelloWorld.html` dan `/keuangan.html`).
 
 ---
 
 ## 🏆 Rubrik Evaluasi & Kriteria Kualitas
 
-Aplikasi ini telah dirancang dan diuji untuk memenuhi kriteria **Skala Sangat Baik (85 - 100)**:
+Aplikasi pada repositori ini dirancang dan diuji untuk memenuhi kriteria **Skala Sangat Baik (85 - 100)**:
 - **Modularitas Komponen**: Seluruh komponen terpecah rapi, independen, dan berprinsip *Single Responsibility*.
-- **Pemanfaatan Props & Data**: Pengiriman props dinamis, pemanfaatan *object destructuring*, dan perulangan array `.map()` menggunakan atribut `key` unik.
+- **Pemanfaatan Props & State**: Pengiriman props dinamis, pemanfaatan *object destructuring*, dan pengelolaan state reaktif lokal & tersinkronisasi.
 - **Kepatuhan Sintaksis JSX**: Menerapkan konvensi `camelCase`, penutupan tag mandiri (*self-closing tags*) yang presisi, serta bersih dari peringatan pada konsol peramban (`0 errors, 0 warnings`).
 
 ---

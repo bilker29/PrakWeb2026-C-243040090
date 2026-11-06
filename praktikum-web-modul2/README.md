@@ -1,16 +1,69 @@
-# React + Vite
+# Modul 2: State Management & Komponen Interaktif (React JS & Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modul ini merupakan bagian dari mata kuliah **Praktikum Pemrograman Web 2026** di Program Studi Teknik Informatika, Universitas Pasundan (UNPAS).
 
-Currently, two official plugins are available:
+## Identitas Praktikan
+- **Nama:** Billy Wicaksono
+- **NPM:** 243040090
+- **Kelas:** C
+- **Dosen Pengampu:** R. Sandhika Galih Amalga, ST., MT.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🎯 Capaian Pembelajaran & Fitur Modul 2
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Modul 2 berfokus pada rekayasa antarmuka interaktif memanfaatkan **React Hooks** (`useState`, `useEffect`), penanganan form (*Controlled Components*), penyimpanan lokal (*LocalStorage*), serta arsitektur komponen terpadu:
 
-## Expanding the ESLint configuration
+### 1. Eksperimen Penghitung State (`Penghitung.jsx`)
+- Demonstrasi reaktivitas state dengan tombol penambah (*increment*), pengurang (*decrement*), dan reset.
+- Memahami konsep *immutability* dan siklus hidup re-render React saat state bermutasi.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2. Aplikasi Manajemen Daftar Tugas (`Daftar Tugas`)
+- **Penambahan Tugas:** Form input terkontrol (*controlled input*) dengan validasi string kosong.
+- **Toggle Status Selesai:** Mengubah status tugas secara dinamis dengan pencoretan teks (*strike-through*).
+- **Penghapusan Tugas:** Menghapus tugas individual serta opsi pembersihan massal (*bulk delete*) untuk semua tugas yang telah selesai.
+- **Sistem Filter Dinamis:** Memfilter tampilan tugas berdasarkan 3 kategori: *Semua*, *Belum Selesai (Aktif)*, dan *Selesai*.
+- **Progress Bar Interaktif:** Kalkulasi persentase penyelesaian tugas secara real-time.
+- **Efek Samping (`useEffect`):**
+  - Sinkronisasi dinamis judul dokumen tab peramban (`document.title`) dengan jumlah sisa tugas belum selesai.
+  - Persistensi data lokal otomatis ke `localStorage` (*browser-level storage*).
+
+### 3. Modul Tambahan: Catatan Keuangan Mini (`CatatanKeuangan.jsx`)
+- **Ringkasan Saldo Otomatis:** Perhitungan total pemasukan, total pengeluaran, serta saldo akhir.
+- **Form Input Transaksi:** Pencatatan keterangan, nominal, dan pemilihan jenis transaksi (*pemasukan* / *pengeluaran*).
+- **Daftar Riwayat Transaksi:** Penyajian riwayat transaksi terformat mata uang Rupiah (`Intl.NumberFormat`).
+- **Persistensi Data:** Seluruh mutasi keuangan tersimpan secara otomatis pada `localStorage`.
+
+### 4. Dukungan Multi-Page / Entry Points
+Proyek ini dikonfigurasi dengan Vite multi-page build:
+- `index.html` $\rightarrow$ Aplikasi Utama (Daftar Tugas & Catatan Keuangan terintegrasi via tab)
+- `HelloWorld.html` $\rightarrow$ Demonstrasi dasar komponen Hello World
+- `keuangan.html` $\rightarrow$ Akses langsung modul Catatan Keuangan mandiri
+
+---
+
+## 💻 Panduan Menjalankan Proyek Secara Lokal
+
+1. **Masuk ke folder modul 2:**
+   ```bash
+   cd praktikum-web-modul2
+   ```
+
+2. **Pasang dependensi:**
+   ```bash
+   npm install
+   ```
+
+3. **Jalankan development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Buka peramban pada alamat:**
+   `http://localhost:5173/`
+
+5. **Uji Build & Lint:**
+   ```bash
+   npm run build
+   npm run lint
+   ```
